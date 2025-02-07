@@ -18,30 +18,68 @@ interface Flat {
   Image: string;
 }
 
+interface State {
+  Name: string;
+  ShortName: string;
+}
+
+interface Place {
+  Name: string;
+  State: State;
+  PlaceId: number;
+}
+
 const FlatSection = () => {
   const [flats, setFlats] = useState<Flat[]>([]);
+  const [places, setPlaces] = useState<Place[]>([]);
+  const [selectedCity, setSelectedCity] = useState<string>("Escolha a cidade");
+  const filteredFlats = selectedCity === "Escolha a cidade"
+  ? flats
+  : flats.filter((flat) => flat.City === selectedCity);
 
   useEffect(() => {
     fetch("http://localhost:3001/Flats")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Dados recebidos:", data);
+        console.log("Flats recebidos:", data);
         setFlats(data);
       })
       .catch((error) => console.error("Erro ao buscar os flats:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/Places")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Places recebidos:", data);
+        setPlaces(data);
+      })
+      .catch((error) => console.error("Erro ao buscar os places:", error));
   }, []);
 
   return (
     <section className="bg-gray-300 w-full py-10">
       <div className="container mx-auto px-6">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-black">
-            Novos Anúncios em <span className="text-orange-600">Belo Horizonte</span>
+          <h2 className="text-2xl font-semibold text-black">
+            Novos Anúncios em
+            <select
+              className="m-2 text-orange-500 bg-transparent"
+              onChange={(e) => setSelectedCity(e.target.value)}
+              value={selectedCity}
+            >
+              <option disabled>Escolha a cidade</option>
+              {places.map((place) => (
+                <option key={place.PlaceId} value={place.Name}>
+                  {place.Name}
+                </option>
+              ))}
+            </select>        
           </h2>
           <a href="/" className="text-blue-500 hover:underline block mt-2">
             Ver todos os imóveis →
           </a>
-        </div>     
+        </div>
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={20}
@@ -59,7 +97,7 @@ const FlatSection = () => {
           }}
           pagination={{ clickable: true, }}
         >
-          {flats.map((flat) => (
+          {filteredFlats.map((flat) => (
             <SwiperSlide key={flat.Id}>
               <div className="bg-white rounded-2xl shadow-md overflow-hidden">
                 <img
