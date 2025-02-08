@@ -7,28 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-interface Flat {
-  Id: number;
-  City: string;
-  Title: string;
-  Author: string;
-  Rooms: number;
-  Tags: string[];
-  Price: number;
-  Image: string;
-}
-
-interface State {
-  Name: string;
-  ShortName: string;
-}
-
-interface Place {
-  Name: string;
-  State: State;
-  PlaceId: number;
-}
-
 const FlatSection = () => {
   const [flats, setFlats] = useState<Flat[]>([]);
   const [places, setPlaces] = useState<Place[]>([]);
