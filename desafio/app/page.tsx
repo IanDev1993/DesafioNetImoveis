@@ -1,9 +1,12 @@
 import React from "react";
 import { SearchSection } from "@/components/SearchSection";
 import FlatSection from "@/components/FlatSection";
-import { InfoSections } from "@/components/InfoSections";
-import { Footer } from "@/components/Footer";
+import InfoSection from "@/components/InfoSection";
+
 import { Navbar } from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import MidiaBar from "@/components/MidiaBar";
+
 
 export default function Home() {
   return (
@@ -11,8 +14,9 @@ export default function Home() {
       <Navbar />
       <SearchSection />
       <FlatSection />
-      <InfoSections />
+      <InfoSection />
       <Footer />
+      <MidiaBar />  
     </div>
   );
 }

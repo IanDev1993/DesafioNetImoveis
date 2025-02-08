@@ -26,7 +26,7 @@ export function Navbar() {
               <li><a href="/" className="text-gray-600 hover:text-gray-800">Blog</a></li>
             </ul>
             <ul className="flex items-center space-x-6 ml-auto">
-              <li><a href="/" className="text-gray-600 hover:text-gray-800 border border-gray-600 rounded-full px-4 py-2">Anunciar imóvel</a></li>
+              <li><a href="/" className="text-violet-600 hover:text-gray-800  border border-violet-600 rounded-full px-4 py-2">Anunciar imóvel</a></li>
               <li><a href="/" className="text-gray-600 hover:text-gray-800 mr-4">Entrar</a></li>
             </ul>
           </div>
