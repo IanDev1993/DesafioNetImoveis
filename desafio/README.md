@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DesafioNetImoveis
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+Este projeto é um portal de anúncios de imóveis, desenvolvido como parte do desafio proposto ao **Front-end Challenge - Netimóveis 20240110**.
 
+## Tecnologias Utilizadas
+
+### Frontend
+- **Next.js 15.1.6**
+- **Tailwind CSS 3.4.1**
+- **Json-Server 1.0.0-beta.3**
+- Outros pacotes para UI/UX, como:
+  - `lucide-react`
+  - `swiper`
+  - `react-icons`
+  - `react-select`
+  - Entre outros.
+
+### Requisitos
+- **Node.js 15.1.6** ou superior.
+
+## Passos para Rodar o Projeto
+
+### 1. Clone este repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/IanDev1993/DesafioNetImoveis
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+Acesse o diretório onde você clonou o projeto e execute:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Rodando o Frontend:
+Após instalar as dependências, inicie o servidor de desenvolvimento do Next.js:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Rodando o Backend (json-server):
+Em outro terminal, execute o comando abaixo para rodar o servidor JSON simulado:
+```bash
+npx json-server --watch db.json --port 3001
+```
+O backend estará disponível em http://localhost:3001.
 
-## Learn More
+## Autor
+Ian Nascimento - Desenvolvedor - https://github.com/IanDev1993
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

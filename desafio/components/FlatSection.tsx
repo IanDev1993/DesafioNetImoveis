@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const FlatSection = () => {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [flats, setFlats] = useState<Flat[]>([]);
   const [places, setPlaces] = useState<Place[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("Escolha a cidade");
@@ -16,7 +17,7 @@ const FlatSection = () => {
   : flats.filter((flat) => flat.City === selectedCity);
 
   useEffect(() => {
-    fetch("http://localhost:3001/Flats")
+    fetch(`${apiUrl}/Flats`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Flats recebidos:", data);
@@ -26,7 +27,7 @@ const FlatSection = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3001/Places")
+    fetch(`${apiUrl}/Places`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Places recebidos:", data);

@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import { Search, MapPin, Bed } from 'lucide-react';
 
 export default function SearchBar() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [location, setLocation] = useState('');
   const [rooms, setRooms] = useState('');
   const [places, setPlaces] = useState<Place[]>([]);
   const [filteredPlaces, setFilteredPlaces] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/Places")
+    fetch(`${apiUrl}/Places`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Places recebidos:", data);
